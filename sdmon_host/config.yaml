@@ -1,5 +1,5 @@
 name: SDmon Host Runner
-version: "1.0.1"
+version: "1.0.2"
 slug: sdmon_host
 description: Privileged sdmon runner with direct SD card access for HAOS
 arch:
