@@ -15,11 +15,12 @@ bashio::log.info "Starting sdmon host runner on ${DEVICE}"
 mkdir -p "$(dirname "${OUTPUT}")"
 
 while true; do
-  if "${CMD[@]}" > "${OUTPUT}.tmp"; then
+  if OUTPUT_TEXT="$("${CMD[@]}" 2>&1)"; then
+    printf '%s\n' "${OUTPUT_TEXT}" > "${OUTPUT}.tmp"
     mv "${OUTPUT}.tmp" "${OUTPUT}"
     bashio::log.info "Updated ${OUTPUT}"
   else
-    bashio::log.warning "sdmon failed; keeping previous output"
+    bashio::log.warning "sdmon failed: ${OUTPUT_TEXT}"
     rm -f "${OUTPUT}.tmp"
   fi
   sleep "${SCAN_INTERVAL}"
