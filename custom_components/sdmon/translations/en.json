@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "SDmon SD Card Health",
-        "description": "Monitor industrial SD card health using [sdmon](https://github.com/Ognian/sdmon).",
+        "description": "Monitor industrial SD card health using {sdmon}.",
         "data": {
           "name": "Name",
           "source": "Data source"

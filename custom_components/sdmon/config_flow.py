@@ -71,6 +71,9 @@ class SDmonConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                     ),
                 }
             ),
+            description_placeholders={
+                "sdmon": "[sdmon](https://github.com/Ognian/sdmon)",
+            },
         )
 
     async def async_step_subprocess(
