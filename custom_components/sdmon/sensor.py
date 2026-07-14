@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from homeassistant.components.sensor import SensorEntity, SensorStateClass
+from homeassistant.components.sensor import SensorDeviceClass, SensorEntity, SensorStateClass
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_NAME
 from homeassistant.core import HomeAssistant
@@ -139,13 +139,15 @@ class SDmonMetricSensor(SDmonEntity):
         self._attr_icon = definition.get("icon")
         if definition.get("unit"):
             self._attr_native_unit_of_measurement = definition["unit"]
+        if definition.get("device_class"):
+            self._attr_device_class = SensorDeviceClass(definition["device_class"])
         if definition.get("state_class"):
             self._attr_state_class = SensorStateClass(definition["state_class"])
 
     @property
     def native_value(self) -> str | float | int | None:
         raw = (self.coordinator.data or {}).get("raw") or {}
-        return metric_value(raw, self._definition["key"])
+        return metric_value(raw, self._definition)
 
     @property
     def available(self) -> bool:

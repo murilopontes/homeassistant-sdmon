@@ -61,7 +61,9 @@
       "bad_block_count": { "name": "Bad block count" },
       "power_on_count": { "name": "Power-on count" },
       "manufacture_date": { "name": "Manufacture date" },
-      "good_block_rate": { "name": "Good block rate" }
+      "good_block_rate": { "name": "Good block rate" },
+      "total_bytes_written": { "name": "Total bytes written" },
+      "physical_bytes_written": { "name": "Physical bytes written" }
     },
     "binary_sensor": {
       "healthy": { "name": "Health problem" }

@@ -102,4 +102,25 @@ SENSOR_DEFINITIONS: Final = {
         "icon": "mdi:check-circle",
         "state_class": "measurement",
     },
+    "total_bytes_written": {
+        "candidates": [
+            {"key": "bytesWrittenCount"},
+            {"key": "writeAllSectNum", "multiplier": 512},
+        ],
+        "name": "Total Bytes Written",
+        "unit": "B",
+        "icon": "mdi:database-arrow-up",
+        "state_class": "total_increasing",
+        "device_class": "data_size",
+    },
+    "physical_bytes_written": {
+        "candidates": [
+            {"key": "phyWrGBNum", "transform": "tb_string"},
+        ],
+        "name": "Physical Bytes Written",
+        "unit": "B",
+        "icon": "mdi:database-sync",
+        "state_class": "total_increasing",
+        "device_class": "data_size",
+    },
 }
