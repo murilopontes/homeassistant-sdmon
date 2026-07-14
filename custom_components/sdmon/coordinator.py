@@ -78,9 +78,13 @@ class SDmonCoordinator(DataUpdateCoordinator[dict[str, Any]]):
     @staticmethod
     def _load_json_file(path: str) -> dict[str, Any]:
         with open(path, encoding="utf-8") as file:
-            data = json.load(file)
+            content = file.read()
+        start = content.find("{")
+        if start == -1:
+            raise json.JSONDecodeError("Expected JSON object", content, 0)
+        data = json.loads(content[start:])
         if not isinstance(data, dict):
-            raise json.JSONDecodeError("Expected JSON object", str(data), 0)
+            raise json.JSONDecodeError("Expected JSON object", content, 0)
         return data
 
     async def _read_subprocess(self) -> dict[str, Any]:

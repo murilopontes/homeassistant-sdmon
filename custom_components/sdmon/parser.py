@@ -23,6 +23,12 @@ def parse_sdmon_payload(payload: dict[str, Any]) -> dict[str, Any]:
     elif used := payload.get("healthStatusPercentUsed"):
         health = max(0.0, 100.0 - float(used))
         card_type = "health"
+    elif remain := payload.get("remainLifeTime"):
+        if isinstance(remain, str) and remain.endswith("%"):
+            health = float(remain.rstrip("%"))
+        else:
+            health = float(remain)
+        card_type = "longsys"
 
     product = payload.get("productString")
     if isinstance(product, str):
