@@ -8,7 +8,6 @@ arch:
 startup: application
 boot: auto
 init: false
-host_pid: true
 apparmor: false
 full_access: true
 privileged:
