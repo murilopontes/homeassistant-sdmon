@@ -46,8 +46,14 @@ On the host (`login` via the SSH add-on), schedule the script (e.g. every 5 minu
 
 - `sensor.*_health` — remaining health (%)
 - `sensor.*_status` — `ok` or `error`
-- `binary_sensor.*_healthy` — on when a problem is reported
+- `sensor.*_total_bytes_written` — total bytes written by the host
+- `sensor.*_physical_bytes_written` — physical NAND bytes written
+- `binary_sensor.*_health_problem` — on when a problem is reported
 - Additional metrics when supported by the card (erase counts, power-on, etc.)
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md).
 
 ## License
 
