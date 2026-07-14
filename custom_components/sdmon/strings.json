@@ -1,0 +1,70 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "SDmon SD Card Health",
+        "description": "Monitor industrial SD card health using [sdmon](https://github.com/Ognian/sdmon).",
+        "data": {
+          "name": "Name",
+          "source": "Data source"
+        }
+      },
+      "subprocess": {
+        "title": "Run sdmon",
+        "description": "Run the sdmon binary on this system.",
+        "data": {
+          "binary_path": "sdmon binary path",
+          "device": "Block device",
+          "add_delay": "Add delay (-a)",
+          "scan_interval": "Scan interval"
+        }
+      },
+      "file": {
+        "title": "Read JSON file",
+        "description": "Read sdmon JSON output from a file.",
+        "data": {
+          "file_path": "JSON file path",
+          "scan_interval": "Scan interval"
+        }
+      }
+    },
+    "error": {
+      "binary_not_found": "sdmon binary was not found at the given path.",
+      "binary_not_executable": "sdmon binary is not executable.",
+      "cannot_connect": "Could not read SD card health. Check device permissions and try enabling add delay.",
+      "file_not_found": "JSON file was not found.",
+      "invalid_json": "The sdmon output is not valid JSON.",
+      "unknown": "Unexpected error while testing sdmon."
+    },
+    "abort": {
+      "already_configured": "This SD card source is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "scan_interval": "Scan interval"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "status": { "name": "Status" },
+      "health": { "name": "Health" },
+      "total_erase_count": { "name": "Total erase count" },
+      "avg_erase_count": { "name": "Average erase count" },
+      "max_erase_count": { "name": "Max erase count" },
+      "power_up_count": { "name": "Power-up count" },
+      "abnormal_poweroff_count": { "name": "Abnormal power-off count" },
+      "bad_block_count": { "name": "Bad block count" },
+      "power_on_count": { "name": "Power-on count" },
+      "manufacture_date": { "name": "Manufacture date" },
+      "good_block_rate": { "name": "Good block rate" }
+    },
+    "binary_sensor": {
+      "healthy": { "name": "Health problem" }
+    }
+  }
+}

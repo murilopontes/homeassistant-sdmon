@@ -1,0 +1,11 @@
+{
+  "domain": "sdmon",
+  "name": "SDmon SD Card Health",
+  "codeowners": ["@murilopontes"],
+  "config_flow": true,
+  "documentation": "https://github.com/murilopontes/homeassistant-sdmon",
+  "integration_type": "device",
+  "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/murilopontes/homeassistant-sdmon/issues",
+  "version": "1.0.0"
+}
